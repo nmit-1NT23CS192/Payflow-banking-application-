@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "id": "abc6f5444cf7c3c4",
+      "name": "Ravin",
+      "email": "ravinakamble2004@gmail.com",
+      "hash": "$2b$10$CVjPrCMKXjudTT15siO9X.sK/d3EfNnVQNVG2CoepxrnYG8IG69py",
+      "accountNo": "611343182284",
+      "balance": 8800,
+      "beneficiaries": [
+        {
+          "id": "3dd2edddc77ea538",
+          "name": "Ravina",
+          "acc": "123456789123"
+        }
+      ],
+      "transactions": [
+        {
+          "id": "a44d0873f57c6ea0",
+          "type": "debit",
+          "name": "Ravina",
+          "acc": "123456789123",
+          "amount": 1200,
+          "note": "",
+          "date": "2026-10-31T05:02:43.578Z",
+          "status": "completed"
+        }
+      ]
+    }
+  ]
+}

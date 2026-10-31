@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PayFlow – Payments & Transfers</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section id="auth" class="auth">
+    <form id="authForm" class="card">
+      <h1>PayFlow</h1>
+      <h2 id="authTitle">Log in</h2>
+      <label id="nameWrap" hidden>Full name <input id="name" autocomplete="name"></label>
+      <label>Email <input id="email" type="email" required autocomplete="username"></label>
+      <label>Password <input id="password" type="password" required minlength="6" autocomplete="current-password"></label>
+      <button class="btn">Log in</button>
+      <p id="authMsg" class="err" role="alert"></p>
+      <button type="button" id="toggleAuth" class="link plain">New here? Create an account</button>
+    </form>
+  </section>
+
+  <div id="app" hidden>
+    <header class="top">
+      <div><h1>PayFlow</h1><span id="who"></span></div>
+      <div class="balance">Available balance <strong id="balance">₹0</strong>
+        <button id="logout" class="link plain light">Log out</button></div>
+    </header>
+    <p id="msg" role="status" class="msg"></p>
+    <main class="grid">
+      <section class="card">
+        <h2>Send money</h2>
+        <form id="transferForm">
+          <label>Send to <select id="toSelect" required></select></label>
+          <label>Amount (₹) <input id="amount" type="number" min="1" step="1" required></label>
+          <label>Note <input id="note" maxlength="40" placeholder="Optional"></label>
+          <button class="btn">Send money</button>
+        </form>
+        <form id="depositForm" class="inline two">
+          <input id="depAmount" type="number" min="1" step="1" placeholder="Add money (₹)" required>
+          <button class="btn alt">Add money</button>
+        </form>
+      </section>
+      <section class="card">
+        <h2>Beneficiaries</h2>
+        <form id="benForm" class="inline">
+          <input id="benName" placeholder="Full name" required>
+          <input id="benAcc" placeholder="Account number (9–12 digits)" required>
+          <button class="btn">Add</button>
+        </form>
+        <ul id="benList" class="list"></ul>
+      </section>
+      <section class="card wide">
+        <div class="row">
+          <h2>Transaction history</h2>
+          <select id="filter" aria-label="Filter by status">
+            <option value="all">All statuses</option><option value="pending">Pending</option>
+            <option value="processing">Processing</option><option value="completed">Completed</option>
+            <option value="failed">Failed</option>
+          </select>
+        </div>
+        <div class="scroll">
+          <table>
+            <thead><tr><th>Date</th><th>Name</th><th>Note</th><th>Amount</th><th>Status</th></tr></thead>
+            <tbody id="txBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
